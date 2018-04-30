@@ -36,11 +36,11 @@ int main() {
 			result += ((product % tensDegree(k) / tensDegree(k - 1)) * tensDegree(digits - k));
 		if (result == product && maxProduct < result)
 			maxProduct = result;
-		result = 0;
 		if (i == (bottomBorder + 1) && maxProduct == 0)
 			bottomBorder -= 100;
 		if (j == (bottomBorder + 1))
 			j = i--;
+		result = 0;
 	}
 
 	printf("result: %i\n", maxProduct);
