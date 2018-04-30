@@ -28,8 +28,8 @@ int tensDegree(int degree) {
 
 int main() {
 	int product = 0, result = 0, digits = 0, maxProduct = 0;
-
-	for (int i = 999, j = i; i > 99; j--) {
+	int bottomBorder = 899;
+	for (int i = 999, j = i; i > bottomBorder; j--) {
 		product = i * j;
 		digits = countOfDigits(product);
 		for (int k = 1; k <= digits; k++)
@@ -37,7 +37,9 @@ int main() {
 		if (result == product && maxProduct < result)
 			maxProduct = result;
 		result = 0;
-		if (j == 100)
+		if (i == (bottomBorder + 1) && maxProduct == 0)
+			bottomBorder -= 100;
+		if (j == (bottomBorder + 1))
 			j = i--;
 	}
 
