@@ -1,24 +1,32 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-double abs_m(double diff) {
+/**
+* 10001st prime
+* Problem 7
+*
+* By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+* What is the 10 001st prime number?
+*/
+
+double _abs(double diff) {
     if(diff < 0)
         return diff * (-1);
     return diff;
 }
 
-double sqrt_m(int num) {
-    double x1 = (num * 1.0) / 2;
-    double x2 = (x1 + (num / x1)) / 2;
-    while(abs_m(x1 - x2) >= 0.0000001) {
-        x1 = x2;
-        x2 = (x1 + (num / x1)) / 2;
+double _sqrt(int number) {
+    double dx1 = (number * 1.0) / 2;
+    double dx2 = (dx1 + (number / dx1)) / 2;
+    while(_abs(dx1 - dx2) >= 0.01) {
+        dx1 = dx2;
+        dx2 = (dx1 + (number / dx1)) / 2;
     }
-    return x2;
+    return dx2;
 }
 
 bool isPrime(int number) {
-    double sqrt_of_number = sqrt_m(number);
+    double sqrt_of_number = _sqrt(number);
     int whole = (int) sqrt_of_number;
     if ((sqrt_of_number - whole) == 0.0)
         return false;
