@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE_GRID 20
-#define ADJACENT 4
-
 /**
  * Largest product in a grid
  * Problem 11
@@ -55,6 +52,8 @@ char STR_GRID[] =
 "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 "
 "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
+#define SIZE_GRID 20
+#define ADJACENT 4
 
 int GRID[SIZE_GRID][SIZE_GRID];
 
