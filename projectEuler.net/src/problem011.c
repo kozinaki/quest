@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 #define SIZE_GRID 20
+#define ADJACENT 4
+
 /**
  * Largest product in a grid
  * Problem 11
@@ -58,9 +60,9 @@ int GRID[SIZE_GRID][SIZE_GRID];
 
 int main() {
 
-    int size = sizeof(STR_GRID);
+    size_t str_size = sizeof(STR_GRID);
     GRID[0][0] = 0;
-    for (int i = 0, j = 10, k = 0, l = 0; i < size - 1; i++, j /= 10) {
+    for (int i = 0, j = 10, k = 0, l = 0; i < str_size - 1; i++, j /= 10) {
         if (STR_GRID[i] == ' ') {
             if (l + 1 == SIZE_GRID) {
                 k++;
@@ -73,27 +75,26 @@ int main() {
         GRID[k][l] += (STR_GRID[i] - '0') * j;
     }
 
-    int sum = 1, max = 1;
-    int sum2 = 1, max2 = 1;
-    for (int i = 0, j = 0; j < SIZE_GRID - 3; i++) {
-        for (int k = 0, l = 0; k < 4; k++, l++) {
-            sum *= GRID[j + k][i + l];
-            if (i > 3)
-                sum2 *= GRID[j + k][i - l];
-            printf("%i, ", GRID[j + k][i + l]);
+    int sum[4], max = 1;
+    for (int i = 0, j = 0; j <= SIZE_GRID - ADJACENT; i++) {
+        for (int i = 0; i < ADJACENT; sum[i] = 1, i++);
+        for (int k = 0; k < ADJACENT; k++) {
+            sum[0] *= GRID[j][i + k];
+            sum[1] *= GRID[j + k][i + k];
+            sum[2] *= GRID[j + k][i];
+            if (i > ADJACENT - 1)
+                sum[3] *= GRID[j + k][i - k];
         }
-        //printf("%i ", GRID[j][i]);
-        if (max < sum)
-            max = sum;
-        printf("%i, %i\n", sum, sum2);
-        sum = 1;
-        sum2 = 1;
-        if (i + 1 == SIZE_GRID - 3) {
+        for (int z = 0; z < ADJACENT; z++)
+            if (max < sum[z])
+                max = sum[z];
+        if (i + 1 == SIZE_GRID - ADJACENT) {
             i = -1;
             j++;
-            printf("-------\n");
         }
     }
+
     printf("result: %i\n", max);
+
     return 0;
 }
