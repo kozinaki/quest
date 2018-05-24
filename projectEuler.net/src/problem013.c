@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define DIGIT 50
-#define COUNT 100
-#define LINE DIGIT + 2
+/**
+ * Large sum
+ * Problem 13
+ *
+ * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers from problem013.txt.
+ */
 
 int getRemain(int *number) {
     if (*number == *number % 10)
@@ -14,32 +17,29 @@ int getRemain(int *number) {
 }
 
 int main() {
-    int result = 0, temp = 0, remain = 0;
-    char string[LINE];
-    size_t size = DIGIT * COUNT;
-    char sum[size];
-    for(int i = 0; i < size; sum[i++] = '0');
-    //printf("%s", sum);
-    FILE *in = fopen("problem013.txt", "r");
-    while ((fgets(string, LINE, in)) != NULL) {
-        for (int i = DIGIT - 1, j = size - 1; j > -1; i--, j--) {
-            if (i > -1)
-                temp = (sum[j] - '0') + (string[i] - '0'); 
-            else
-                temp = 0;
-            temp += remain;
-            printf("%i, %i, %i, %i, %i\n", i, j, sum[j] - '0', string[i] - '0', temp);
+    int digit = 50, line = digit + 2, count = 100, temp = 0, remain = 0;
+    char string[line];
+
+    size_t size = digit;
+    do
+        size++;
+    while ((count = count / 10) > 1);
+    char result[size];
+    for (int i = 0; i < size; result[i++] = '0');
+    result[size] = '\0';
+
+    FILE *in = fopen("data/problem013.txt", "r");
+    while ((fgets(string, line, in)) != NULL) {
+        for (int i = digit - 1, j = size - 1; j >= 0; i--, j--) {
+            temp = result[j] - '0' + remain;
+            if (i >= 0)
+                temp += (string[i] - '0'); 
             remain = getRemain(&temp);
-            sum[j] = temp + '0';
+            result[j] = temp + '0';
         }
     }
-    /*fgets(string, LINE, in);
-    char t[] = "000";
-    printf("%i\n", t[0] - '0');
-    printf("%s\n", string);
-    printf("%i\n", string[DIGIT - 2] - '0');*/
-    printf("%s", sum);
-
-    //printf("result: %i\n", result);
+    printf("result: ");
+    for(int i = 0; i < 10; printf("%c", result[i++]));
+    printf("\n");
     return 0;
 }
