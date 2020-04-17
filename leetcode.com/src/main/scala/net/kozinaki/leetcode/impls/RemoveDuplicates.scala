@@ -1,17 +1,19 @@
 package main.scala.net.kozinaki.leetcode.impls
 
-//TODO
 object RemoveDuplicates {
 
   def removeDuplicates(nums: Array[Int]): Int = {
-    var dublicate: Int = Int.MaxValue;
-    for (num <- nums) {
-      if (dublicate != num) {
-
-      }
-      dublicate = num
+    if (nums.length <= 1) {
+      return nums.length
     }
-    0;
+    var j: Int = 0;
+    for (i <- 1 to nums.length - 1) {
+      if (nums(i) != nums(j)) {
+        j += 1;
+        nums.update(j, nums(i))
+      }
+    }
+    j + 1
   }
 
 }
