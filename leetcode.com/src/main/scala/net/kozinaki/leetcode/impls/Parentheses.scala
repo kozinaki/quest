@@ -1,5 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
+/**
+ * {@see <a href="https://leetcode.com/problems/valid-parentheses">longest-substring-without-repeating-charactersvalid-parentheses</a>}
+ */
 object Parentheses {
 
   val ERROR: String = "ERROR"

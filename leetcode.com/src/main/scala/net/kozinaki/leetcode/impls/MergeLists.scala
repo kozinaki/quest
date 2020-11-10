@@ -1,6 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
-
+/**
+ * {@see <a href="https://leetcode.com/problems/merge-two-sorted-lists">merge-two-sorted-lists</a>}
+ */
 object MergeLists {
 
   class ListNode(var _x: Int = 0) {

@@ -3,7 +3,7 @@ package test.scala.net.kozinaki.leetcode.impls
 import main.scala.net.kozinaki.leetcode.impls.LongestPrefix.longestCommonPrefix
 import org.scalatest.funsuite.AnyFunSuite
 
-class LongestPrefixTest extends AnyFunSuite{
+class LongestPrefixTest extends AnyFunSuite {
 
   test("Longest prefix must be exist or not") {
     assert(longestCommonPrefix(Array("flower","flow","flight")) == "fl")

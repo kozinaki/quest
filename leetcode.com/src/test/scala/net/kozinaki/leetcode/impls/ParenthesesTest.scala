@@ -6,22 +6,22 @@ import org.scalatest.funsuite.AnyFunSuite
 class ParenthesesTest extends AnyFunSuite{
 
   test ("Parentheses must be closed") {
-    assert(Parentheses.isValid("(({[]})())") == true)
-    assert(Parentheses.isValid("(([({})]){}([{}]))") == true)
-    assert(Parentheses.isValid("") == true)
-    assert(Parentheses.isValid("((") == false)
-    assert(Parentheses.isValid("()") == true)
-    assert(Parentheses.isValid("){") == false)
-    assert(Parentheses.isValid("()[]{}") == true);
-    assert(Parentheses.isValid("(]") == false);
-    assert(Parentheses.isValid("([)]") == false);
-    assert(Parentheses.isValid("{[]}") == true);
-    assert(Parentheses.isValid("(()())") == true);
-    assert(Parentheses.isValid("(()()()()()()()()()()()()()()()()()())") == true);
-    assert(Parentheses.isValid("(()()(){}[])") == true);
-    assert(Parentheses.isValid("{()()(){}[]}") == true);
-    assert(Parentheses.isValid("{()[](){}[]}") == true);
-    assert(Parentheses.isValid("{()[](){][]}") == false);
+    assert(Parentheses.isValid("(({[]})())"))
+    assert(Parentheses.isValid("(([({})]){}([{}]))"))
+    assert(Parentheses.isValid(""))
+    assert(!Parentheses.isValid("(("))
+    assert(Parentheses.isValid("()"))
+    assert(!Parentheses.isValid("){"))
+    assert(Parentheses.isValid("()[]{}"));
+    assert(!Parentheses.isValid("(]"));
+    assert(!Parentheses.isValid("([)]"));
+    assert(Parentheses.isValid("{[]}"));
+    assert(Parentheses.isValid("(()())"));
+    assert(Parentheses.isValid("(()()()()()()()()()()()()()()()()()())"));
+    assert(Parentheses.isValid("(()()(){}[])"));
+    assert(Parentheses.isValid("{()()(){}[]}"));
+    assert(Parentheses.isValid("{()[](){}[]}"));
+    assert(!Parentheses.isValid("{()[](){][]}"));
   }
 
 }

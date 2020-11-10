@@ -1,5 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
+/**
+ * {@see <a href="https://leetcode.com/problems/plus-one">plus-one</a>}
+ */
 object PlusOne {
 
   def plusOne(digits: Array[Int]): Array[Int] = {

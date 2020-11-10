@@ -1,5 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
+/**
+ * {@see <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">remove-duplicates-from-sorted-array</a>}
+ */
 object RemoveDuplicates {
 
   def removeDuplicates(nums: Array[Int]): Int = {

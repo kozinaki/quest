@@ -1,5 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
+/**
+ * {@see <a href="https://leetcode.com/problems/longest-common-prefix">longest-common-prefix</a>}
+ */
 object LongestPrefix {
 
   def longestCommonPrefix(strs: Array[String]): String = {

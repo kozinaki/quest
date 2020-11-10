@@ -1,5 +1,8 @@
 package main.scala.net.kozinaki.leetcode.impls
 
+/**
+ * {@see <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters">longest-substring-without-repeating-characters</a>}
+ */
 object LongestSubstring {
 
   def lengthOfLongestSubstring(s: String): Int = {
